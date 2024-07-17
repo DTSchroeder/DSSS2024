@@ -70,6 +70,12 @@ class Neo4jConnection:
         """ Return the count of interactions by book. """
         query = "MATCH ()-[r]->() RETURN r.book as book, count(r) as interaction_count ORDER BY book"
         return self.run_query(query)
+    
+    def count_interactions(self):
+        """ Return the count of interactions. """
+        query = "MATCH ()-[r]->() RETURN count(r) as count"
+        result = self.run_query(query)
+        return result[0]["count"] if result else 0
 
     def calculate_network_summary_statistics(self):
         """ Calculate network summary statistics. """
