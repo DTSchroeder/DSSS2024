@@ -51,6 +51,7 @@ You'll need the following:
    - Under the "Graph Data Analytics" DBMS, click on "New Database."
    - Name it "GoT" and click "Create."
    - Once created, click "Start" to activate the database.
+   - In these tutorial we will use the (default) username "neo4j" and the password "your_password".
 
 7. **Open Neo4j Browser:**
    - Click on the "Open" button next to your new "GoT" database. This will launch the Neo4j Browser, where you'll run Cypher queries to import and explore your graph data.

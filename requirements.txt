@@ -3,3 +3,5 @@ networkx
 pandas
 matplotlib
 jupyter
+scipy
+python-louvain
