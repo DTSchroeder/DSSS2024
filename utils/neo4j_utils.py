@@ -118,5 +118,19 @@ class Neo4jConnection:
                     graph.add_edge(rel.start_node["name"], rel.end_node["name"], weight=rel["weight"])
 
             return graph
-        
-        # TODO ADD SUBGRAPHS
+    def print_community_sizes(self, communities):
+        """ Print the sizes of the communities. """
+        # Calculate the sizes of the detected communities and create a list of (community_index, size) tuples
+        community_sizes = [(idx, len(community)) for idx, community in enumerate(communities)]
+
+        # Sort the list of community sizes by size in descending order
+        sorted_community_sizes = sorted(community_sizes, key=lambda x: x[1], reverse=True)
+
+        print(f"Number of communities: {len(communities)}")
+        for idx, size in sorted_community_sizes:
+            print(f"Community {idx + 1}: {size} nodes")
+         
+    
+    
+    
+    # TODO ADD SUBGRAPHS
