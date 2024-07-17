@@ -91,3 +91,6 @@ You'll need the following:
    ```cypher
    MATCH (n)
    RETURN COUNT(n) AS nodeCount; //796
+
+### Tasks and Examples
+All tasks, examples, and the corresponding documentation is provided in the folders task_0 - task_4.
