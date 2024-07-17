@@ -118,6 +118,7 @@ class Neo4jConnection:
                     graph.add_edge(rel.start_node["name"], rel.end_node["name"], weight=rel["weight"])
 
             return graph
+        
     def print_community_sizes(self, communities):
         """ Print the sizes of the communities. """
         # Calculate the sizes of the detected communities and create a list of (community_index, size) tuples
@@ -129,6 +130,22 @@ class Neo4jConnection:
         print(f"Number of communities: {len(communities)}")
         for idx, size in sorted_community_sizes:
             print(f"Community {idx + 1}: {size} nodes")
+            
+    def subgraph_largest_community(self):
+        """ Return the subgraph of the largest community. """
+        # Load the data into a NetworkX graph
+        graph = self.load_data_into_networkx()
+
+        # Detect communities using the Louvain method
+        communities = list(nx.algorithms.community.louvain_communities(graph))
+
+        # Find the largest community
+        largest_community = max(communities, key=len)
+
+        # Create a subgraph of the largest community
+        subgraph = graph.subgraph(largest_community)
+
+        return subgraph
          
     
     
