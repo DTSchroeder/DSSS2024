@@ -1,0 +1,2 @@
+# Shortest Paths
+Make sure to read to the shortest path documentation for NetworkX [here](https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html). Later, there is one task (4.1) to complete.
