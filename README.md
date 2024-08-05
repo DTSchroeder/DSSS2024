@@ -61,26 +61,26 @@ You'll need the following:
 
    ```cypher
     CREATE CONSTRAINT FOR (c:Character) REQUIRE c.name IS UNIQUE;  // Ensure unique character names
-
-   LOAD CSV WITH HEADERS FROM '[https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book1-edges.csv](https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book1-edges.csv)' AS row
+   
+     LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book1-edges.csv' AS row
        MERGE (src:Character {name: row.Source})
        MERGE (tgt:Character {name: row.Target})
        MERGE (src)-[r:INTERACTS1]->(tgt)
        ON CREATE SET r.weight = toInteger(row.weight), r.book=1;
-
-   LOAD CSV WITH HEADERS FROM '[https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book2-edges.csv](https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book2-edges.csv)' AS row
+   
+   LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book2-edges.csv' AS row
        MERGE (src:Character {name: row.Source})
        MERGE (tgt:Character {name: row.Target})
        MERGE (src)-[r:INTERACTS2]->(tgt)
        ON CREATE SET r.weight = toInteger(row.weight), r.book=2;
-
-   LOAD CSV WITH HEADERS FROM '[https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book3-edges.csv](https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book3-edges.csv)' AS row
+   
+   LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book3-edges.csv' AS row
        MERGE (src:Character {name: row.Source})
        MERGE (tgt:Character {name: row.Target})
        MERGE (src)-[r:INTERACTS3]->(tgt)
        ON CREATE SET r.weight = toInteger(row.weight), r.book=3;
-
-   LOAD CSV WITH HEADERS FROM '[https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book45-edges.csv](https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book45-edges.csv)' AS row
+   
+   LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/neo4j-examples/graphgists/master/browser-guides/data/asoiaf-book45-edges.csv' AS row
        MERGE (src:Character {name: row.Source})
        MERGE (tgt:Character {name: row.Target})
        MERGE (src)-[r:INTERACTS45]->(tgt)
